@@ -65,9 +65,9 @@ if algo_type == "pca":
     original_image_path = os.path.join(output_dir, "original_image.jpg")
     # Save the original image in JPG format
     cv2.imwrite(original_image_path, np.array(original_image, dtype=np.uint8))
-else:
-    cv2.imshow("Original Image" , cv2.resize(scaled_face[0],(200, 200)))
-    cv2.waitKey()
+# else:
+#     cv2.imshow("Original Image" , cv2.resize(scaled_face[0],(200, 200)))
+#     cv2.waitKey()
 
 #Algo
 if algo_type == "pca":
@@ -87,9 +87,9 @@ if algo_type == "pca":
     afterpca_image_path = os.path.join(output_dir, "after_pca_image.jpg")
     # Save the after PCA image in JPG format
     cv2.imwrite(afterpca_image_path, np.array(after_pca_image, dtype=np.uint8))
-else:
-    cv2.imshow("After PCA Image", cv2.resize(np.array(my_algo.original_data(new_coordinates[0]), dtype = np.uint8), (200, 200)))
-    cv2.waitKey()
+# else:
+#     cv2.imshow("After PCA Image", cv2.resize(np.array(my_algo.original_data(new_coordinates[0]), dtype = np.uint8), (200, 200)))
+#     cv2.waitKey()
 
 
 training_time = time.process_time() - training_start_time
