@@ -176,44 +176,44 @@ training_time = time.process_time() - training_start_time
 
 #For Image
 
-if reco_type == 2:
-    face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt2.xml')
-    dir = r'images/Group/'
+# if reco_type == 2:
+#     face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt2.xml')
+#     dir = r'images/Group/'
 
 
-    frame = cv2.imread(dir+ "group_image.jpg")
+#     frame = cv2.imread(dir+ "group_image.jpg")
 
 
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+#     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
 
-    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=3)
+#     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=3)
 
 
-    i = 0
+#     i = 0
 
-    for(x, y, w, h) in faces:
-        roi_gray = gray[y:y+h, x:x+w]
-        scaled = cv2.resize(roi_gray, (img_height, img_width))
-        rec_color = (0, 255, 0)
-        rec_stroke = 5
-        cv2.rectangle(frame, (x, y), (x+w, y+h), rec_color, rec_stroke)
+#     for(x, y, w, h) in faces:
+#         roi_gray = gray[y:y+h, x:x+w]
+#         scaled = cv2.resize(roi_gray, (img_height, img_width))
+#         rec_color = (0, 255, 0)
+#         rec_stroke = 5
+#         cv2.rectangle(frame, (x, y), (x+w, y+h), rec_color, rec_stroke)
 
-        new_cord = my_algo.new_cord_for_image(scaled)
-        # print("New Cord PCA"+str(i), new_cord)
-        name = my_algo.recognize_face(new_cord)
-        font = cv2.FONT_HERSHEY_SIMPLEX
-        font_color = (255, 0, 0)
-        font_stroke = 5
-        cv2.putText(frame, name + str(i), (x, y), font, 8, font_color, font_stroke, cv2.LINE_AA)
-        i += 1
-        # cv2.imshow('Face', scaled)
-        # cv2.waitKey()
+#         new_cord = my_algo.new_cord_for_image(scaled)
+#         # print("New Cord PCA"+str(i), new_cord)
+#         name = my_algo.recognize_face(new_cord)
+#         font = cv2.FONT_HERSHEY_SIMPLEX
+#         font_color = (255, 0, 0)
+#         font_stroke = 5
+#         cv2.putText(frame, name + str(i), (x, y), font, 8, font_color, font_stroke, cv2.LINE_AA)
+#         i += 1
+#         # cv2.imshow('Face', scaled)
+#         # cv2.waitKey()
 
 
-    frame = cv2.resize(frame, (1080, 568))
-    cv2.imshow('Colored Frame', frame)
-    cv2.waitKey()
+#     frame = cv2.resize(frame, (1080, 568))
+#     cv2.imshow('Colored Frame', frame)
+#     cv2.waitKey()
 
 
 
